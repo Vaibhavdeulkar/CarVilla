@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "UserDashboard";
+}
+
+<h2>UserDashboard</h2>
+@*@if (Request.Cookies["Email"].Value != null)
+    {
+        <h2>Welcome @Request.Cookies["Email"].Value.ToString() </h2>
+
+    }*@
+
+@if (Session["UserEmail"] != null)
+{
+    <h2>Welcome @Session["UserEmail"]ToString() </h2>
+    @Html.ActionLink("Logout", "Logout", "User")
+
+}
+else
+{
+    Response.Redirect("Login");
+}
+
